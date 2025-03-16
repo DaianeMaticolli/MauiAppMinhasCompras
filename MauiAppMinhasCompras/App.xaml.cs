@@ -1,4 +1,6 @@
 ﻿using MauiAppMinhasCompras.Helpers;
+using MauiAppMinhasCompras.Views;
+using System.IO;
 
 namespace MauiAppMinhasCompras
 {
@@ -10,20 +12,19 @@ namespace MauiAppMinhasCompras
         {
             get
             {
-                if(_db == null)
+                if (_db == null)
                 {
-                    string path = Path.Combine( Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "banco_sqlite_compras.db3");
-
+                    string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "banco_sqlite_compras.db3");
                     _db = new SQLiteDatabaseHelper(path);
                 }
                 return _db;
             }
-                    }
+        }
+
         public App()
         {
             InitializeComponent();
-            MainPage = new AppShell();
-            MainPage = new NavigationPage(new Views.ListarProduto());
+            MainPage = new NavigationPage(new ListaProduto()); 
         }
     }
 }
