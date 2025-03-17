@@ -10,19 +10,21 @@
     </ContentPage.ToolbarItems>
 
     <VerticalStackLayout Padding="10">
+        <!-- SearchBar para buscar produtos -->
         <SearchBar x:Name="txt_search" 
                    Placeholder="Busca de Produtos"
                    TextChanged="txt_search_TextChanged"
                    Margin="0,0,0,10"/>
 
+        <!-- ListView para exibir produtos -->
         <ListView x:Name="lista_produtos" HasUnevenRows="True">
             <ListView.Header>
                 <Grid ColumnDefinitions="*, *, *, *, *" Padding="5">
-                    <Label Grid.Column="0" Text="ID" FontAttributes="Bold"/>
-                    <Label Grid.Column="1" Text="Descrição" FontAttributes="Bold"/>
-                    <Label Grid.Column="2" Text="Preço" FontAttributes="Bold"/>
-                    <Label Grid.Column="3" Text="Qnt" FontAttributes="Bold"/>
-                    <Label Grid.Column="4" Text="Total" FontAttributes="Bold"/>
+                    <Label Grid.Column="0" Text="ID" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                    <Label Grid.Column="1" Text="Descrição" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                    <Label Grid.Column="2" Text="Preço" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                    <Label Grid.Column="3" Text="Qnt" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                    <Label Grid.Column="4" Text="Total" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
                 </Grid>
             </ListView.Header>
 
@@ -32,12 +34,13 @@
                         <ViewCell.ContextActions>
                             <MenuItem Text="Remover" Clicked="MenuItem_Clicked" CommandParameter="{Binding .}"/>
                         </ViewCell.ContextActions>
+
                         <Grid ColumnDefinitions="*, *, *, *, *" Padding="5">
-                            <Label Grid.Column="0" Text="{Binding Id}" />
+                            <Label Grid.Column="0" Text="{Binding Id}" HorizontalTextAlignment="Center"/>
                             <Label Grid.Column="1" Text="{Binding Descricao}" />
-                            <Label Grid.Column="2" Text="{Binding Preco, StringFormat='R${0:F2}'}"/>
-                            <Label Grid.Column="3" Text="{Binding Quantidade}" />
-                            <Label Grid.Column="4" Text="{Binding Total, StringFormat='R${0:F2}'}"/>
+                            <Label Grid.Column="2" Text="{Binding Preco, StringFormat='R${0:F2}'}" HorizontalTextAlignment="End"/>
+                            <Label Grid.Column="3" Text="{Binding Quantidade}" HorizontalTextAlignment="Center"/>
+                            <Label Grid.Column="4" Text="{Binding Total, StringFormat='R${0:F2}'}" HorizontalTextAlignment="End"/>
                         </Grid>
                     </ViewCell>
                 </DataTemplate>
